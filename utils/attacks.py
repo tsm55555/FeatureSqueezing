@@ -74,7 +74,7 @@ def generate_jsma_examples(sess, x, predictions, X_test, Y_test, nb_examples):
     perterb_list = []
 
     # Loop over the samples we want to perturb into adversarial examples
-    for sample_ind in xrange(nb_examples):
+    for sample_ind in range(nb_examples):
         print ("=================Working on %d/%d..." % (sample_ind+1, nb_examples))
         # Define the target class.
         target = (int(np.argmax(Y_test[sample_ind])) + 1) % 10
