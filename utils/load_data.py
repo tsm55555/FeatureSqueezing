@@ -1,5 +1,5 @@
 import tarfile
-from urllib2 import urlopen
+from urllib.request import urlopen
 import os
 import pickle
 import time
@@ -20,12 +20,12 @@ def maybe_download_mnist_model():
     tgt_folder = './trained_models'
     if not os.path.isdir('./trained_models/mnist'):
         url = trained_mnist_model_url
-        print "Downloading the pre-trained MNIST model from " + url
+        print ("Downloading the pre-trained MNIST model from " + url)
         download_and_extract_model(url, tgt_folder)
 
     if not os.path.isdir('./trained_models/mnist_adv_train'):
         url = adv_trained_mnist_model_url
-        print "Downloading the adversarially pre-trained MNIST model from " + url
+        print ("Downloading the adversarially pre-trained MNIST model from " + url)
         download_and_extract_model(url, tgt_folder)
 
 
@@ -38,6 +38,6 @@ def restore_or_calculate_object(fpath, func, args, obj_name):
         print ("Duration: %d sec" % duration)
         pickle.dump(obj, open(fpath, 'wb'))
     else:
-        obj = pickle.load(open(fpath))
+        obj = pickle.load(open(fpath, 'rb'))
         print ("===Loaded %s." % obj_name)
     return obj

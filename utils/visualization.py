@@ -20,7 +20,7 @@ def show_imgs(imgs, width_num=10, height_num=10, x_margin=2, y_margin=2, fpath='
     total_width = width_num * IMAGE_SIZE + (width_num-1)*x_margin
     total_height = height_num * IMAGE_SIZE + (height_num-1)*y_margin
 
-    new_im = Image.new('RGB', (total_width, total_height), (255,255,255))
+    new_im = Image.new('RGB', (int(total_width), int(total_height)), (255,255,255))
 
     x_offset = 0
     y_offset = 0

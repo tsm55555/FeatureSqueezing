@@ -6,7 +6,7 @@ external_libs = {'Cleverhans v1.0.0': "externals/cleverhans",
 
 project_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
-for lib_name, lib_path in external_libs.iteritems():
+for lib_name, lib_path in external_libs.items():
     lib_path = os.path.join(project_path, lib_path)
     if os.listdir(lib_path) == []:
         cmd = "git submodule update --init --recursive"
